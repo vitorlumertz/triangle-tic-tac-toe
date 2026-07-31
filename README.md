@@ -20,7 +20,7 @@ A Python implementation of triangle tic-tac-toe with random and minimax-based AI
 python TriangleTicTacToe.py
 ```
 
-By default, the game starts in Human vs. AI mode. Enter `x` as the old position when placing a new piece, then enter a board position from `a` to `i`.
+By default, the game starts in Human vs. AI mode. During the first three rounds, enter only the position (`a` to `i`) where you want to place a new piece. From the fourth round onward, enter the current and new positions to move one of your pieces.
 
 To change the game mode, edit the calls at the bottom of `TriangleTicTacToe.py`:
 

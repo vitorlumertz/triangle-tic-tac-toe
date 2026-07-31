@@ -32,6 +32,7 @@ class Player:
       bestMoves = json.load(file)
       self.bestMoves = bestMoves
 
+
   def PossibleMoves(self, game, opponentPositions):
     impossiblePositions = RemoveNones(self.positions + opponentPositions)
 
@@ -276,7 +277,9 @@ def minimax(game: Game, depth, alpha, beta, isMaxPlayer):
         break
     return minEval
 
+
 ##########################################################################################
+
 
 def AIvsAI(p1Level, p2Level, maxMoves=10):
   p1 = Player(p1Level, True)
@@ -312,11 +315,30 @@ def HumanVsAi(level):
   p1 = Player('Random', True)
   p2 = Player(level, False)
   game = Game(p1,p2)
+  roundNumber = 1
 
   while True:
-    oldPosition = input('Enter the old position: ')
-    newPosition = input('Enter the new position: ')
-    move = (oldPosition, newPosition)
+    possibleMoves = p1.PossibleMoves(game, p2.positions)
+
+    while True:
+      if roundNumber <= 3:
+        print(f'\nRound {roundNumber} - Place a new piece')
+        newPosition = input('Enter the position (a-i): ').strip().lower()
+        move = ('x', newPosition)
+      else:
+        print(f'\nRound {roundNumber} - Move one of your pieces')
+        oldPosition = input('Move from: ').strip().lower()
+        newPosition = input('Move to: ').strip().lower()
+        move = (oldPosition, newPosition)
+
+      if move in possibleMoves:
+        break
+
+      if roundNumber <= 3:
+        print('Invalid move. Please choose an available position from a to i.')
+      else:
+        print('Invalid move. Choose one of your pieces and an available connected position.')
+
     p1.SetMove(move)
     if game.IsP1Winner():
       print(p1.positions)
@@ -324,11 +346,16 @@ def HumanVsAi(level):
       break
 
     move = p2.Move(game, p1)
-    print('Best Move:', move)
+    if move[0] == 'x':
+      print(f'AI placed a new piece at {move[1]}.')
+    else:
+      print(f'AI moved a piece from {move[0]} to {move[1]}.')
     if game.IsP2Winner():
       print(p2.positions)
       print('Player 2 Win!')
       break
+
+    roundNumber += 1
 
 
 if __name__ == '__main__':
