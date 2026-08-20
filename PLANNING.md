@@ -15,11 +15,11 @@ This file should be consulted at the beginning of every implementation task. It 
 
 The repository currently contains:
 
-- `TriangleTicTacToe.py`: game rules, players, AI logic, and terminal game modes.
-- `Statistics.py`: generation of precomputed best moves.
+- `legacy/TriangleTicTacToe.py`: game rules, players, AI logic, and terminal game modes.
+- `legacy/Statistics.py`: generation of precomputed best moves.
 - `BestMoves.json`: precomputed moves used by the fast advanced AI.
 - `board.png`: reference image for the board and its position labels.
-- `Analysis.txt`: output and notes from previous game analysis.
+- `legacy/Analysis.txt`: output and notes from previous game analysis.
 
 The existing Python game supports:
 
@@ -162,6 +162,7 @@ Every phase should follow these principles:
 - Introduce as few new concepts as practical at one time.
 - Explain important implementation choices in plain language.
 - Prefer small components and functions with clear responsibilities.
+- Use 2 spaces for indentation in project source and test files, with 2 blank lines between classes, functions, and methods.
 - Avoid premature databases, authentication, state libraries, and deployment complexity.
 - Add tests where rules or behavior could regress.
 - Preserve existing user work and avoid unrelated refactors.
@@ -489,12 +490,15 @@ Decisions should be recorded in the Decision Log below.
 | 2026-08-19 | Introduce the API after the first frontend phases. | This keeps the learning progression simple and provides visible results early. |
 | 2026-08-19 | Store games in memory initially. | Persistence is not needed for the first playable version. |
 | 2026-08-19 | Introduce random AI before advanced AI. | It validates the full client/server flow with less complexity. |
+| 2026-08-19 | Move the terminal modules and historical analysis into `legacy/` at the end of Phase 0. | With baseline tests in place, the move safely clarifies the repository before frontend work begins. |
+| 2026-08-19 | Maintain `BestMoves.json` and `board.png`; retain `legacy/Analysis.txt` as historical reference only. | The first two are runtime or visual inputs, while the analysis file is not required to run the game. |
+| 2026-08-19 | Use pytest for Python tests. | Its concise assertions and test features will scale well when the FastAPI backend is introduced. |
 
 ## 13. Progress Tracker
 
 | Phase | Status | Notes |
 | --- | --- | --- |
-| Phase 0 — Establish the baseline | Not started | |
+| Phase 0 — Establish the baseline | Complete | Rules and maintained artifacts documented; legacy behavior covered by focused tests; default advanced terminal path smoke-tested; random-strategy return-value limitation recorded. |
 | Phase 1 — Static Next.js board | Not started | |
 | Phase 2 — Local browser interaction | Not started | |
 | Phase 3 — FastAPI foundation | Not started | |

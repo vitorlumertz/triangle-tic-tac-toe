@@ -1,6 +1,7 @@
 import random
 import time
 import json
+from pathlib import Path
 
 
 def RemoveNones(t: tuple):
@@ -28,9 +29,11 @@ class Player:
     self.isP1 = isP1
     self.bestMoves = None
     if level == 'FastAdvanced':
-      file = open(bestMovesFileName)
-      bestMoves = json.load(file)
-      self.bestMoves = bestMoves
+      bestMovesPath = Path(bestMovesFileName)
+      if not bestMovesPath.is_absolute():
+        bestMovesPath = Path(__file__).resolve().parent.parent / bestMovesPath
+      with bestMovesPath.open() as file:
+        self.bestMoves = json.load(file)
 
 
   def PossibleMoves(self, game, opponentPositions):

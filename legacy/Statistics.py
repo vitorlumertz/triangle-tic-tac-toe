@@ -1,4 +1,4 @@
-from TriangleTicTacToe import *
+from legacy.TriangleTicTacToe import *
 from itertools import product
 import json
 

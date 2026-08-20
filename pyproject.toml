@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "triangle-tic-tac-toe"
+version = "0.1.0"
+description = "Triangle Tic-Tac-Toe with computer opponents"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=9,<10",
+]
+
+[tool.setuptools.packages.find]
+include = ["legacy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
