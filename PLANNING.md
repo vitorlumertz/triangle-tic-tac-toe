@@ -493,13 +493,15 @@ Decisions should be recorded in the Decision Log below.
 | 2026-08-19 | Move the terminal modules and historical analysis into `legacy/` at the end of Phase 0. | With baseline tests in place, the move safely clarifies the repository before frontend work begins. |
 | 2026-08-19 | Maintain `BestMoves.json` and `board.png`; retain `legacy/Analysis.txt` as historical reference only. | The first two are runtime or visual inputs, while the analysis file is not required to run the game. |
 | 2026-08-19 | Use pytest for Python tests. | Its concise assertions and test features will scale well when the FastAPI backend is introduced. |
+| 2026-08-21 | Render the Phase 1 board as a responsive SVG driven by typed position and connection data. | SVG keeps the geometry sharp and aligned at all screen sizes, while the data arrays map directly to the legacy rules and remain reusable in later phases. |
+| 2026-08-21 | Use system font stacks instead of build-time web font downloads. | The static frontend should build consistently without requiring access to a third-party font service. |
 
 ## 13. Progress Tracker
 
 | Phase | Status | Notes |
 | --- | --- | --- |
 | Phase 0 — Establish the baseline | Complete | Rules and maintained artifacts documented; legacy behavior covered by focused tests; default advanced terminal path smoke-tested; random-strategy return-value limitation recorded. |
-| Phase 1 — Static Next.js board | Not started | |
+| Phase 1 — Static Next.js board | Complete | Responsive SVG renders all nine empty labeled positions and 18 rule connections beneath a centered page title; verified at desktop and mobile widths. |
 | Phase 2 — Local browser interaction | Not started | |
 | Phase 3 — FastAPI foundation | Not started | |
 | Phase 4 — Random computer integration | Not started | |

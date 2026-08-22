@@ -1,0 +1,27 @@
+:root {
+  color-scheme: light;
+  --font-body: Inter, Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+  background: #f1ede2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #f1ede2;
+}
+
+body {
+  margin: 0;
+  color: #21352f;
+  background: #f1ede2;
+  font-family: var(--font-body), sans-serif;
+}
+
+::selection {
+  color: #fffaf0;
+  background: #315f5a;
+}

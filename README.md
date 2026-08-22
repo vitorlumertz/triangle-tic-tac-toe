@@ -1,6 +1,7 @@
 # Triangle Tic-Tac-Toe
 
-A Python implementation of triangle tic-tac-toe with random and minimax-based AI players.
+A web version of triangle tic-tac-toe in development, alongside the preserved
+Python terminal game.
 
 The exact legacy board connections, phases, and winning combinations are
 documented in [RULES.md](RULES.md).
@@ -18,6 +19,22 @@ documented in [RULES.md](RULES.md).
 - No external dependencies
 
 ## Run
+
+### Static web board
+
+The Phase 1 frontend requires Node.js and npm. Start the Next.js development
+server from the repository root:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Then open the local address printed by Next.js. The current page is a static,
+responsive board preview; interaction and game state belong to Phase 2.
+
+### Legacy terminal game
 
 ```bash
 python legacy/TriangleTicTacToe.py
@@ -60,3 +77,4 @@ from terminal input/output for the web API.
 - `RULES.md` - documented baseline for board connections and game rules
 - `tests/` - focused pytest tests that characterize the legacy rules
 - `pyproject.toml` - Python project metadata, dependencies, and test configuration
+- `frontend/` - Next.js, TypeScript, React components, and responsive board styles

@@ -1,0 +1,21 @@
+.pageShell {
+  width: min(100% - 2rem, 48rem);
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.pageShell h1 {
+  margin: 0;
+  color: #21352f;
+  font-family: var(--font-display), serif;
+  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-align: center;
+}
+
+.boardArea {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}

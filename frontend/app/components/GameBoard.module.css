@@ -1,0 +1,43 @@
+.boardFrame {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+
+.board {
+  width: min(100%, 42rem);
+  height: auto;
+  overflow: visible;
+}
+
+.connections line {
+  stroke: #38564d;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.72;
+}
+
+.position circle {
+  stroke-width: 4;
+}
+
+.empty {
+  fill: #f8f4ea;
+  stroke: #38564d;
+}
+
+.label {
+  fill: #233730;
+  font-family: var(--font-body), sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+@media (max-width: 520px) {
+  .connections line {
+    stroke-width: 4;
+  }
+}
